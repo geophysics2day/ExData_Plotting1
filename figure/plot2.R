@@ -8,8 +8,8 @@ dataSelect <- subset(data, (Date >= "2007-02-01" & Date <="2007-02-03"), select 
 
 ##Plot 2
 ##weekdaylist <- weekdays(as.POSIXct(dataSelect$Date), abbreviate = F)
-
+dev.set(2)
 with(dataSelect, plot(Date,Global_active_power, pch = '.', ylab = "Global Active Power (kilowatts)"), type = "n")
 lines(dataSelect$Date, dataSelect$Global_active_power, pch = '.', type = "l", lty = 1, lwd = 1.5, col = "black")
-dev.copy(png, file = "plot2.png") ## Copy to PNG
+dev.copy(png, file = "plot2.png", width = 480, height = 480) ## Copy to PNG
 dev.off() ## Closing the png

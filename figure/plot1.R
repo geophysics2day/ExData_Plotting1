@@ -7,8 +7,9 @@ data$Date <- DateFixed ## Add standardized date/time data to data frame
 dataSelect <- subset(data, (Date >= "2007-02-01" & Date <="2007-02-03"), select = c("Date","Global_active_power","Global_reactive_power","Voltage","Global_intensity","Sub_metering_1","Sub_metering_2","Sub_metering_3"))
 
 ##Plot 1
+dev.set(1)
 hist(as.numeric(dataSelect$Global_active_power), main = "Global Active Power", col = "red", xlab = "Global Active Power (kilowatts)")
-dev.copy(png, file = "plot1.png") ## Copy to PNG
+dev.copy(png, file = "plot1.png", width = 480, height = 480) ## Copy to PNG
 dev.off() ## Closing the png
 
 
